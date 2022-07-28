@@ -1,0 +1,28 @@
+<idea-plugin>
+    <id>io.github.devcrema.mockk-template-generator</id>
+    <name>Mockk-Template-Generator</name>
+    <vendor email="devcrema@gmail.com" url="https://github.com/devcrema">devcrema</vendor>
+
+    <description><![CDATA[
+    create mockk template for object like spring component.<br>
+    ]]></description>
+
+    <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <action id="io.github.devcrema.mockkTemplateGenerator.SampleAction"
+                class="io.github.devcrema.mockkTemplateGenerator.SampleAction" text="Test Action"
+                description="test description">
+            <override-text place="MainMenu" text="Test Action"/>
+            <add-to-group group-id="ToolsMenu" anchor="first"/>
+        </action>
+    </actions>
+
+</idea-plugin>
