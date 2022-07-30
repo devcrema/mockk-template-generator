@@ -10,19 +10,18 @@
     <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
          on how to target different products -->
     <depends>com.intellij.modules.platform</depends>
+    <depends>org.jetbrains.kotlin</depends>
 
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->
+        <localInspection implementationClass="io.github.devcrema.mockkTemplateGenerator.MockkGeneratorInspection"
+                         groupPath="Kotlin"
+                         groupName="Mockk template"
+                         enabledByDefault="true"
+                         level="INFORMATION"
+                         language="kotlin"
+                         displayName="Mockk template"/>
     </extensions>
 
-    <actions>
-        <!-- Add your actions here -->
-        <action id="io.github.devcrema.mockkTemplateGenerator.SampleAction"
-                class="io.github.devcrema.mockkTemplateGenerator.SampleAction" text="Test Action"
-                description="test description">
-            <override-text place="MainMenu" text="Test Action"/>
-            <add-to-group group-id="ToolsMenu" anchor="first"/>
-        </action>
-    </actions>
 
 </idea-plugin>
