@@ -4,6 +4,7 @@ import com.intellij.codeInspection.LocalQuickFix
 import com.intellij.codeInspection.ProblemDescriptor
 import com.intellij.codeInspection.ProblemsHolder
 import com.intellij.openapi.project.Project
+import com.intellij.util.io.impl.FileSpec
 import org.jetbrains.kotlin.idea.inspections.AbstractKotlinInspection
 import org.jetbrains.kotlin.nj2k.postProcessing.type
 import org.jetbrains.kotlin.psi.KtClass
@@ -16,10 +17,10 @@ class MockkGeneratorInspection : AbstractKotlinInspection() {
         isOnTheFly: Boolean
     ) = classVisitor(fun(element: KtClass) {
         println(element.primaryConstructorParameters.map { ClassParameter(it.name!!, it.type()!!) })
-        holder.registerProblem(element, "Test!!", TestFix("test!"))
+        holder.registerProblem(element, "GENEARTE MOCK", GenerateMockkTemplateFix("generate mockk codes"))
     })
 
-    class TestFix(
+    class GenerateMockkTemplateFix(
         private val description: String,
     ) : LocalQuickFix {
         override fun getFamilyName(): String {
@@ -27,7 +28,7 @@ class MockkGeneratorInspection : AbstractKotlinInspection() {
         }
 
         override fun applyFix(project: Project, descriptor: ProblemDescriptor) {
-            println("apply fix $description")
+
         }
 
     }
